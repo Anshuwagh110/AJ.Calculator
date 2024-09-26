@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        input[type="button"] {
+            width: 80px;
+            border-radius: 100px;
+            height: 80px;
+            font-size: 30px;
+            font-weight: bold;
+            border: none;
+        }
+        button {
+            width: 80px;
+            height: 80px;
+            border-radius: 100px;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+        }
+        textarea {
+            width: 320px;
+            height: 90px;
+            font-size: 50px;
+            font-weight: bold; 
+            border: none;
+            color: white;
+        }
+        #result {
+            box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
+            color: black;
+            background: white;
+        }
+        #id {
+            width: 50px;
+            height: 50px;
+            border-radius: 0px;
+            color: white;
+            background: white;
+        }
+        
+    </style>
+</head>
+<body id="color">
+    <table id="calcu">
+        
+              
+        <textarea id="result" disabled></textarea>
+        <tr>
+            <td>
+                <input type="button" value="C" id="sk" onclick="clearResult()">
+            </td>
+            <td>
+                <input type="button" value="<" id="sko" onclick="backspace()">
+            </td>
+            <td>
+                <input type="button" value="%" id="skp" onclick="appendValue('%')">
+            </td>
+            <td>
+                <input type="button" value="÷" id="ok" onclick="appendValue('/')">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="7" id="a1" onclick="appendValue('7')">
+            </td>
+            <td>
+                <input type="button" value="8" id="a2" onclick="appendValue('8')">
+            </td>
+            <td>
+                <input type="button" value="9" id="a3" onclick="appendValue('9')">
+            </td>
+            <td>
+                <input type="button" value="×" id="oks" onclick="appendValue('*')">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="4" id="a4" onclick="appendValue('4')">
+            </td>
+            <td>
+                <input type="button" value="5" id="a5" onclick="appendValue('5')">
+            </td>
+            <td>
+                <input type="button" value="6" id="a6" onclick="appendValue('6')">
+            </td>
+            <td>
+                <input type="button" value="-" id="oka" onclick="appendValue('-')">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="1" id="a7" onclick="appendValue('1')">
+            </td>
+            <td>
+                <input type="button" value="2" id="a8" onclick="appendValue('2')">
+            </td>
+            <td>
+                <input type="button" value="3" id="a9" onclick="appendValue('3')">
+            </td>
+            <td>
+                <input type="button" value="+" id="okj" onclick="appendValue('+')">
+            </td>
+        </tr>
+        <tr>
+            <td >
+                <input type="button" value="0" id="a10" onclick="appendValue ('0')">
+            </td>
+            <td>
+                <button onclick="jaya()" id="a11">color</button>
+            </td>
+            <td>
+                <input type="button" value="." id="a12" onclick="appendValue('.')">
+            </td>
+            <td>
+                <input type="button" value="=" id="okk" onclick="calculateResult()">
+            </td>
+         </tr>
+         <tr>
+             <td>
+                 <button onclick="anshu()" id="id">.</button>
+             </td>
+         </tr>
+    </table>
+    <script>
+        function jaya() {
+            document.getElementById("ok").style.backgroundColor="#ff7400";
+            document.getElementById("oks").style.backgroundColor="#ff7400";
+            document.getElementById("oka").style.backgroundColor="#ff7400";
+            document.getElementById("okj").style.backgroundColor="#ff7400";
+            document.getElementById("okk").style.backgroundColor="#ff7400";
+            document.getElementById("sk").style.backgroundColor="#9b9b8e";
+            document.getElementById("sko").style.backgroundColor="#9b9b8e";
+            document.getElementById("skp").style.backgroundColor="#9b9b8e";
+             document.getElementById("a1").style.backgroundColor="#373737";
+            document.getElementById("a2").style.backgroundColor="#373737";
+            document.getElementById("a3").style.backgroundColor="#373737";
+            document.getElementById("a4").style.backgroundColor="#373737";
+            document.getElementById("a5").style.backgroundColor="#373737";
+            document.getElementById("a6").style.backgroundColor="#373737";
+            document.getElementById("a7").style.backgroundColor="#373737";
+            document.getElementById("a8").style.backgroundColor="#373737";
+            document.getElementById("a9").style.backgroundColor="#373737"; 
+            document.getElementById("a10").style.backgroundColor="#373737";
+            document.getElementById("a11").style.backgroundColor="#373737"; 
+            document.getElementById("a12").style.backgroundColor="#373737"; 
+ document.getElementById("ok").style.color="white";
+            document.getElementById("oks").style.color="white";
+            document.getElementById("oka").style.color="white";
+            document.getElementById("okj").style.color="white";
+            document.getElementById("okk").style.color="white";
+            document.getElementById("sk").style.color="white";
+            document.getElementById("sko").style.color="white";
+            document.getElementById("skp").style.color="white";
+             document.getElementById("a1").style.color="white";
+            document.getElementById("a2").style.color="white";
+            document.getElementById("a3").style.color="white";
+            document.getElementById("a4").style.color="white";
+            document.getElementById("a5").style.color="white";
+            document.getElementById("a6").style.color="white";
+            document.getElementById("a7").style.color="white";
+            document.getElementById("a8").style.color="white";
+            document.getElementById("a9").style.color="white"; 
+            document.getElementById("a10").style.color="white";
+            document.getElementById("a11").style.color="white"; 
+            document.getElementById("a12").style.color="white"; 
+            document.getElementById("color").style.backgroundColor="black";
+            document.getElementById("result").style.backgroundColor="black";
+            document.getElementById("result").style.color="white";
+            document.getElementById("id").style.backgroundColor="black";
+            document.getElementById("id").style.color="black";
+            
+        }
+        
+        let result =document.getElementById("result");
+
+    function clearResult() {
+      result.value = "";
+    }
+
+    function appendValue(value) {
+      result.value += value;
+    }
+
+    function calculateResult() {
+      try {
+        result.value = eval(result.value);
+      } catch (e) {
+        result.value = "Error";
+      }
+    }
+    function backspace() {
+        let currentValue = result.value;
+        result.value = currentValue.slice(0, -1);
+    }
+    function anshu() {
+            document.getElementById("ok").style.backgroundColor="#efefef";
+            document.getElementById("oks").style.backgroundColor="#efefef";
+            document.getElementById("oka").style.backgroundColor="#efefef";
+            document.getElementById("okj").style.backgroundColor="#efefef";
+            document.getElementById("okk").style.backgroundColor="#efefef";
+            document.getElementById("sk").style.backgroundColor="#efefef";
+            document.getElementById("sko").style.backgroundColor="#efefef";
+            document.getElementById("skp").style.backgroundColor="#efefef";
+             document.getElementById("a1").style.backgroundColor="#efefef";
+            document.getElementById("a2").style.backgroundColor="#efefef";
+            document.getElementById("a3").style.backgroundColor="#efefef";
+            document.getElementById("a4").style.backgroundColor="#efefef";
+            document.getElementById("a5").style.backgroundColor="#efefef";
+            document.getElementById("a6").style.backgroundColor="#efefef";
+            document.getElementById("a7").style.backgroundColor="#efefef";
+            document.getElementById("a8").style.backgroundColor="#efefef";
+            document.getElementById("a9").style.backgroundColor="#efefef"; 
+            document.getElementById("a10").style.backgroundColor="#efefef";
+            document.getElementById("a11").style.backgroundColor="#efefef"; 
+            document.getElementById("a12").style.backgroundColor="#efefef"; 
+ document.getElementById("ok").style.color="black";
+            document.getElementById("oks").style.color="black";
+            document.getElementById("oka").style.color="black";
+            document.getElementById("okj").style.color="black";
+            document.getElementById("okk").style.color="black";
+            document.getElementById("sk").style.color="black";
+            document.getElementById("sko").style.color="black";
+            document.getElementById("skp").style.color="black";
+             document.getElementById("a1").style.color="black";
+            document.getElementById("a2").style.color="black";
+            document.getElementById("a3").style.color="black";
+            document.getElementById("a4").style.color="black";
+            document.getElementById("a5").style.color="black";
+            document.getElementById("a6").style.color="black";
+            document.getElementById("a7").style.color="black";
+            document.getElementById("a8").style.color="black";
+            document.getElementById("a9").style.color="black"; 
+            document.getElementById("a10").style.color="black";
+            document.getElementById("a11").style.color="black"; 
+            document.getElementById("a12").style.color="black"; 
+            document.getElementById("color").style.backgroundColor="white";
+             document.getElementById("result").style.backgroundColor="white";
+            document.getElementById("result").style.color="black";
+            document.getElementById("id").style.backgroundColor="#efefef";
+            document.getElementById("id").style.color="white";
+            document.getElementById("id").style.backgroundColor="white";
+        }
+    </script>
+</body>
+</html>
